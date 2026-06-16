@@ -46,14 +46,22 @@ ELSE ()
 	MESSAGE(FATAL_ERROR "Could not find libzip. Please install libzip and libzip-devel packages")
 ENDIF ()
 
+SET (dirlist ${LIBCHM_INCLUDE_DIR} ${LIBZIP_INCLUDE_DIR})
+list(REMOVE_DUPLICATES dirlist)
+
 # Set compilation params
 INCLUDE_DIRECTORIES(
 		${CMAKE_SOURCE_DIR}/src
 		${CMAKE_SOURCE_DIR}/lib/libebook )
 
-target_include_directories(kchmviewer AFTER SYSTEM
-  PRIVATE ${LIBZIP_INCLUDE_DIR} ${LIBCHM_INCLUDE_DIR}
-  )
+list(LENGTH dirlist len)
+
+while (len GREATER 0)
+	list(POP_FRONT dirlist 0 dir)
+	set INCLUDE_DIRECTORIES (${INCLUDE_DIRECTORIES} dir)
+	list(LENGTH dirlist len)
+endwhile ()
+
 if(NOT DEFINED LOCALE_INSTALL_DIR)
 	set(LOCALE_INSTALL_DIR share/locale)
 endif()
