@@ -13,6 +13,7 @@ set(CMAKE_AUTORCC ON)
 # Necessary packages
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network PrintSupport DBus WebEngineWidgets Xml)
 find_package(libzip REQUIRED)
+find_package(ZLIB REQUIRED)
 find_package(Libchm REQUIRED)
 
 # KDE Frameworks (optional; enables USE_KDE build)
@@ -38,6 +39,7 @@ endif()
 # libzip
 FIND_PATH(LIBZIP_INCLUDE_DIR zip.h)
 FIND_LIBRARY(LIBZIP_LIBRARY NAMES zip)
+FIND_LIBRARY(ZLIB_LIBRARY NAMES zlib)
 
 IF (LIBZIP_INCLUDE_DIR AND LIBZIP_LIBRARY)
 	MESSAGE(STATUS "Found libzip: ${LIBZIP_LIBRARY}")
