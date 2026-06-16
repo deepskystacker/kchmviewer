@@ -58,7 +58,7 @@ list(LENGTH dirlist len)
 
 while (len GREATER 0)
 	list(POP_FRONT dirlist 0 dir)
-	set INCLUDE_DIRECTORIES (${INCLUDE_DIRECTORIES} dir)
+	set (INCLUDE_DIRECTORIES ${INCLUDE_DIRECTORIES} dir)
 	list(LENGTH dirlist len)
 endwhile ()
 
