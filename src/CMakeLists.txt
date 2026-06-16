@@ -34,7 +34,8 @@ target_link_libraries( kchmviewer
 	ebook
 	${LIBCHM_LIBRARY}
 	${LIBZIP_LIBRARY}
-	${ZLIB_LIBRARY}
+	PRIVATE BZip2::BZip2
+	PRIVATE ZLIB::ZLIB
 	Qt6::Core
 	Qt6::Widgets
 	Qt6::Network
