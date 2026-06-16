@@ -41,6 +41,7 @@ FIND_LIBRARY(LIBZIP_LIBRARY NAMES zip)
 
 IF (LIBZIP_INCLUDE_DIR AND LIBZIP_LIBRARY)
 	MESSAGE(STATUS "Found libzip: ${LIBZIP_LIBRARY}")
+	MESSAGE(STATUS "Found zip.h: ${LIBZIP_INCLUDE_DIR}")
 ELSE ()
 	MESSAGE(FATAL_ERROR "Could not find libzip. Please install libzip and libzip-devel packages")
 ENDIF ()
@@ -50,6 +51,8 @@ INCLUDE_DIRECTORIES(
 		${CMAKE_SOURCE_DIR}/src
 		${CMAKE_SOURCE_DIR}/lib/libebook )
 
+target_include_directories(kcmhviewer AFTER SYSTEM
+  PRIVATE ${LIBZIP_INCLUDE_DIR} ${
 if(NOT DEFINED LOCALE_INSTALL_DIR)
 	set(LOCALE_INSTALL_DIR share/locale)
 endif()

@@ -1,7 +1,7 @@
 # Tries to find libchm
 
-FIND_PATH(LIBCHM_INCLUDE_DIR chm_lib.h /usr/include /usr/local/include)
-FIND_LIBRARY(LIBCHM_LIBRARY NAMES chm PATH /usr/lib /usr/local/lib) 
+FIND_PATH(LIBCHM_INCLUDE_DIR chm_lib.h)
+FIND_LIBRARY(LIBCHM_LIBRARY NAMES chm) 
 
 IF (LIBCHM_INCLUDE_DIR AND LIBCHM_LIBRARY)
    SET(LIBCHM_FOUND TRUE)
