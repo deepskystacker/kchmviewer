@@ -58,7 +58,7 @@ list(LENGTH dirlist len)
 message("dirlist length: ${len}")
 
 while (len GREATER 0)
-	list(POP_FRONT dirlist 0 dir)
+	list(POP_FRONT dirlist dir)
 	message("dir:  ${dir}")
 	INCLUDE_DIRECTORIES (AFTER ${dir})
 	list(LENGTH dirlist len)
