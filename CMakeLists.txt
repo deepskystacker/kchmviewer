@@ -51,7 +51,7 @@ INCLUDE_DIRECTORIES(
 		${CMAKE_SOURCE_DIR}/src
 		${CMAKE_SOURCE_DIR}/lib/libebook )
 
-target_include_directories(kcmhviewer AFTER SYSTEM
+target_include_directories(kchmviewer AFTER SYSTEM
   PRIVATE ${LIBZIP_INCLUDE_DIR} ${LIBCHM_INCLUDE_DIR}
   )
 if(NOT DEFINED LOCALE_INSTALL_DIR)
