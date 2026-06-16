@@ -12,6 +12,7 @@ set(CMAKE_AUTORCC ON)
 
 # Necessary packages
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network PrintSupport DBus WebEngineWidgets Xml)
+find_package(libzip REQUIRED)
 FIND_PACKAGE( Libchm REQUIRED)
 
 # KDE Frameworks (optional; enables USE_KDE build)
