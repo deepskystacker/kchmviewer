@@ -55,16 +55,14 @@ INCLUDE_DIRECTORIES(
 		${CMAKE_SOURCE_DIR}/lib/libebook )
 
 list(LENGTH dirlist len)
-message("dirlist length: " ${len})
+message("dirlist length: ${len}")
 
 while (len GREATER 0)
 	list(POP_FRONT dirlist 0 dir)
-	message("dir: " ${dir})
-	set (INCLUDE_DIRECTORIES "${INCLUDE_DIRECTORIES} ${dir}")
+	message("dir:  ${dir}")
+	INCLUDE_DIRECTORIES (AFTER ${dir})
 	list(LENGTH dirlist len)
 endwhile ()
-
-message("INCLUDE_DIRECTORIES: " ${INCLUDE_DIRECTORIES})
 
 if(NOT DEFINED LOCALE_INSTALL_DIR)
 	set(LOCALE_INSTALL_DIR share/locale)
